@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đại lý - Trà Sâm Tiên</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Boostrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="bg-image"></div>
+  <div class="container">
+    <div class="form">
+      <form method="post" class="row g-3" name='google-sheet' autocomplete="off" id="myForm">
+        <div class="col-md-6">
+          <label for="name1" class="form-label">Tên đại lý</label>
+          <input type="text" class="form-control" name="Shop" />
+        </div>
+        <div class="col-md-6">
+          <label for="phone" class="form-label">Số điện thoại</label>
+          <input type="text" class="form-control" name="Phone" />
+        </div>
+        <div class="col-md-4">
+          <label for="product" class="form-label">Sản phẩm</label>
+          <input type="text" class="form-control" name="Product" />
+        </div>
+        <div class="col-md-4">
+          <label for="soluong" class="form-label">Số lượng</label>
+          <input type="text" class="form-control" name="Quantity" />
+        </div>
+        <div class="col-md-4">
+          <label for="dongia" class="form-label">Đơn giá</label>
+          <input type="text" class="form-control" name="Price" />
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Địa chỉ</label>
+          <input type="text" class="form-control" placeholder="1234 Ngô Quyền, Quận 7..." name="Address" />
+        </div>
+        <div class="col-md-6">
+          <label for="inputCity" class="form-label">Tỉnh thành</label>
+          <input type="text" class="form-control" name="City" />
+        </div>
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Quận huyện</label>
+          <input type="text" class="form-control" name="State" />
+        </div>
+        <div class="col-md-2">
+          <label for="note" class="form-label">Ghi chú</label>
+          <input type="text" class="form-control" name="Note" />
+        </div>
+        <div class="col-12">
+          <button type="submit" name="submit" class="btn btn-primary" id="btnReset">GỬI</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Footer -->
+  <!-- Boostrap -->
+  <!-- API Goolge -->
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbziaLC2tuX_j8Wcn6uUhqyu8zozDOzyFhE6W9CksP215h3RHKNHYGylCEewPfFl9jDbbQ/exec'
+    const form = document.forms['google-sheet']
+    const myForm = document.getElementById('myForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."), myForm.reset())
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
