@@ -10,6 +10,7 @@ html {
 }
 
 .container {
+  position: relative;
   max-width: 1280px;
   padding-top: 30px;
   margin-right: 15px;
